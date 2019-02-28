@@ -1,0 +1,18 @@
+p{
+    font-family: Consolas,monaco,monospace; 
+    text-align: center;
+
+}
+body{
+    background-image: url("../images/background.png");
+}
+h1{
+    text-align: center;
+}
+.content{
+    text-align: center;
+}
+#button{
+    text-align:center;
+    
+}
