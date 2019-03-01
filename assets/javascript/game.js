@@ -28,33 +28,36 @@ $(document).ready(function () {
 
     // timeIt(function () {
 
-    timeIt(function () {
+    function timeIt() {
         counter++;
         timer.html(timeLeft - counter);
+    }
+    function intervalFunction() {
+        setInterval(timeIt, 1000);
+
+    }
+
+
+
+
+
+
+    //   if (count <= 0)
+    //   {
+    //      clearInterval(counter);
+    //      return;
+    //   }
+
+
+
+
+
+    //.click function to start the game
+    $("#button").click(function () {
+        intervalFunction();
+        $(".content").append(questions[1]);
+
     })
-    setInterval(timeIt, 1000);
-    timeIt();
-
-
-
-
-//   if (count <= 0)
-//   {
-//      clearInterval(counter);
-//      return;
-//   }
-
-
-
-
-
-//.click function to start the game
-$("#button").click(function () {
-    setTimeout(startGame, 1000)
-    timeIt();
-    $(".content").append(questions[1]);
-
-})
 
 
 });
