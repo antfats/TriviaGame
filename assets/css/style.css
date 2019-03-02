@@ -13,6 +13,15 @@ h1{
     text-align: center;
 }
 #button{
+    float:right;
+}
+ #time{
+    float:left;
+    font-family: Consolas,monaco,monospace; 
+    font-size: 18px;
+}
+.content{
+    width:960px;
     text-align:center;
-    
+
 }
