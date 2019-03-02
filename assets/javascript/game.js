@@ -58,10 +58,12 @@ $(document).ready(function () {
         setInterval(timeIt, 1000);
 
     }
-
+    var wins = 0;
+    var losses = 0;
 
     //Starts the clock, as well as starts the for loop that puts the game on the screen
     $("#button").click(function () {
+
         intervalFunction();
         if (running = false) {
             running = true;
@@ -71,52 +73,44 @@ $(document).ready(function () {
             clearInterval;
             alert("Times up!");
         }
-
+        $("#button").attr("disabled", "disabled");
         // for loop to append all questions 
 
+        function checkAnswer(answer) {
+            if (cAnswerOne) {
+                alert("Woo! That was right");
+                wins++;
+            }
+
+        }
+
+        function display() {
+            var cAnswerOne = questions[currentQuestion].answers.choiceA;
+            var cAnswerTwo = questions[currentQuestion].answers.choiceB;
+            var cAnswerThree = questions[currentQuestion].answers.choiceC;
+            var cAnswerFour = questions[currentQuestion].answers.choiceD;
+
+            var choicesOne = questions[currentQuestion].answers;
+
+
+            answerOne = $("<p class='choices'>");
+            questionDiv = $("<p class='questions'>" + (answerOne));
+
+            questionDiv.append(questions[currentQuestion].question)
+
+            answerOne.append(questions[currentQuestion].answers);
+            
+            console.log(choicesOne);
+            $("#questionDiv").append(questionDiv);
+            $("#answerDiv").append(answerOne);
+
+            $("#questionTwo").append(questions[0].answers.choiceA+ " " + cAnswerTwo+ " " + cAnswerThree )
+            checkAnswer();
+            var questionOne = questions[currentQuestion].question;
+        }
 
         for (var currentQuestion = 0; currentQuestion < questions.length; currentQuestion++) {
-            function display() {
 
-                var choicesOne = questions[currentQuestion].answers;
-
-
-                answerOne = $("<p class='choices'>");
-                questionDiv = $("<p class='questions'>" + (answerOne));
-
-                questionDiv.append(questions[currentQuestion].question)
-
-                answerOne.append(questions[currentQuestion].answers);
-                console.log(choicesOne);
-                $("#questionDiv").append(questionDiv);
-                $("#answerDiv").append(answerOne);
-
-
-                function checkAnswer(answer) {
-                    if (this.click === questions[currentQuestion].answers[2]) {
-                        alert("Woo! That was right");
-                        wins++;
-                    }
-                    else if (this.click === questions[currentQuestion].answers[0]) {
-                        alert("Nice!");
-                        wins++
-                    }
-                    else if (this.click === questions[currentQuestion].answers[0]) {
-                        alert("Nice!");
-                        wins++
-
-                    }
-                    else if (this.click === questions[currentQuestion].answers[3]) {
-                        alert("Nice!");
-                        wins++;
-                    }
-                    $(".choices").click(function () {
-
-
-                    });
-                }
-                var questionOne = questions[currentQuestion].question;
-            }
             display();
 
         }

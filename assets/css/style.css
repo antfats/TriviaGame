@@ -12,8 +12,9 @@ h1{
 .content{
     text-align: center;
 }
-#button{
+#button:disabled{
     float:right;
+    
 }
  #time{
     float:left;
