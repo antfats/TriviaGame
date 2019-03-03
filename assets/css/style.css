@@ -3,6 +3,12 @@ p{
     text-align: center;
 
 }
+.questions{
+    border:coral;
+    border-style: solid;
+    background:rgb(192, 184, 166);
+    display:inline;
+}
 body{
     background-image: url("../images/background.png");
 }
@@ -12,8 +18,9 @@ h1{
 .content{
     text-align: center;
 }
+
 #button:disabled{
-    float:right;
+    /* float:right; */
     
 }
  #time{
