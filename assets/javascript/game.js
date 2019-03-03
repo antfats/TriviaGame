@@ -1,7 +1,7 @@
 $(document).ready(function () {
     //Questions here!
     var questions = [{
-        question: 'What does the < h1 > tag do in html',
+        question: 'What does the < h1 > tag do in html?',
 
         answers:
         {
@@ -13,7 +13,7 @@ $(document).ready(function () {
         }
 
     }, {
-        question: "How do I call a function in javascript",
+        question: "How do I call a function in javascript?",
 
         answers: {
             choiceA: "functionname(); ",
@@ -77,7 +77,25 @@ $(document).ready(function () {
         // for loop to append all questions 
 
         function checkAnswer(answer) {
+
+            var cAnswerOne = questions[0].answers.choiceA;
+            var cAnswerTwo = questions[1].answers.choiceB;
+            var cAnswerThree = questions[2].answers.choiceC;
+            var cAnswerFour = questions[3].answers.choiceD;
+
             if (cAnswerOne) {
+                alert("Woo! That was right");
+                wins++;
+            }
+            if (cAnswerTwo) {
+                alert("Woo! That was right");
+                wins++;
+            }
+            if (cAnswerThree) {
+                alert("Woo! That was right");
+                wins++;
+            }
+            if (cAnswerFour) {
                 alert("Woo! That was right");
                 wins++;
             }
@@ -85,31 +103,67 @@ $(document).ready(function () {
         }
 
         function display() {
-            var cAnswerOne = questions[currentQuestion].answers.choiceA;
-            var cAnswerTwo = questions[currentQuestion].answers.choiceB;
-            var cAnswerThree = questions[currentQuestion].answers.choiceC;
-            var cAnswerFour = questions[currentQuestion].answers.choiceD;
+            var cAnswerOne = questions[0].answers.choiceA;
+            var cAnswerTwo = questions[1].answers.choiceB;
+            var cAnswerThree = questions[2].answers.choiceC;
+            var cAnswerFour = questions[3].answers.choiceD;
 
             var choicesOne = questions[currentQuestion].answers;
 
+            //creating question div's
+            questionDiv = $("<p class='questions'>");
+            questionTwo = $("<p class='questions'>");
+            questionThree = $("<p class='questions'>");
+            questionFour = $("<p class='questions'>");
 
-            answerOne = $("<p class='choices'>");
-            questionDiv = $("<p class='questions'>" + (answerOne));
-
-            questionDiv.append(questions[currentQuestion].question)
-
-            answerOne.append(questions[currentQuestion].answers);
+            //appending the question to the question divs
+            questionDiv.append(questions[0].question)
+            questionTwo.append(questions[1].question)
+            questionThree.append(questions[2].question)
+            questionFour.append(questions[3].question)
             
-            console.log(choicesOne);
+            //creating buttons for the answers
+            answerBtn = $("<button class='questions'>");
+            answerBtnTwo = $("<button class='questions'>");
+            answerBtnThree = $("<button class='questions'>");
+            answerBtnFour = $("<button class='questions'>");
+
+
+
+
+            //apending all of the questions/answers in order
             $("#questionDiv").append(questionDiv);
-            $("#answerDiv").append(answerOne);
 
-            $("#questionTwo").append(questions[0].answers.choiceA+ " " + cAnswerTwo+ " " + cAnswerThree )
+            $("#answerDiv").append(cAnswerTwo + " | " + cAnswerTwo + " | " + cAnswerThree + " | " + cAnswerFour)
+
+            $("#questionTwo").append(questionTwo);
+
+            $("#answerTwo").append(cAnswerTwo + " | " + cAnswerTwo + " | " + cAnswerThree + " | " + cAnswerFour)
+
+            $("#questionThree").append(questionThree);
+
+            $("#answerThree").append(cAnswerThree + " | " + cAnswerTwo + " | " + cAnswerThree + " | " + cAnswerFour)
+
+            $("#questionFour").append(questionFour);
+
+            $("#answerFour").append(cAnswerFour + " | " + cAnswerTwo + " | " + cAnswerThree + " | " + cAnswerFour)
+
+
+
+
+
+
+
+
             checkAnswer();
-            var questionOne = questions[currentQuestion].question;
-        }
 
-        for (var currentQuestion = 0; currentQuestion < questions.length; currentQuestion++) {
+        }
+        $("#answerDiv").click(function () {
+            console.log(this.Answers)
+
+        });
+
+        for (var currentQuestion = 0; currentQuestion < 1; currentQuestion++) {
 
             display();
 
