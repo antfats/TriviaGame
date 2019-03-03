@@ -20,7 +20,7 @@ h1{
 }
 
 #button:disabled{
-    /* float:right; */
+    float:right;
     
 }
  #time{
